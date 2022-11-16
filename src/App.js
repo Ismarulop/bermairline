@@ -11,7 +11,7 @@ function App() {
   //  .then(data => setResult(data));
 
    useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts?_limit=10')
+    fetch('http://localhost:8080/flights/allflights')
        .then((response) => response.json())
        .then((data) => {
           console.log(data);
@@ -31,14 +31,14 @@ function App() {
           <legend>Flight Information</legend>
           <div className="form-group">
             <label htmlFor="exampleSelect1" className="form-label mt-4">
-              {posts[0].title}
+              ORIGIN
             </label>
             <select className="form-select" id="exampleSelect1">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              {posts.map( (item) => {
+                return (
+                  <option>{item.origin}</option>
+                )
+              } )}
             </select>
           </div>
           <div className="form-group">
